@@ -1,0 +1,35 @@
+/* General page setup */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f6f8;
+    color: #1a1a1a;
+}
+
+
+header h1,
+body > p {
+    max-width: 900px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
+}
+
+header h1 {
+    font-size: x-large;
+    font-weight: lighter;
+    text-align: center;
+    margin: 0 auto 10px auto;
+}
+
+body > p {
+    margin: 10px auto 0 auto;
+}
+
+/* Make math stand out slightly */
+math {
+    font-size: 1.1em;
+}
