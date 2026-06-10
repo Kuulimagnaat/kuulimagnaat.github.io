@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" href="Stiil.css"/>
+<title>
+Socket
+</title>
+</head>
+<body>
+<header>
+<h1>
+Socket
+</h1>
+</header>
+<p>
+Teame, et ühendust kahe seadme vahel kirjeldab järgmised viis asja: protokoll, teenindaja aadress, teenindaja port, kliendi aadress ja kliendi port. Teenindaja saab olla ühenduses mitme kliendiga ja iga kliendi jaoks on teenindaja loonud socketi. Socket on abstraktne asi, mis peidab endasse süsteemi keerukust sarnaselt voogudega C proges. Iga socketi taga pole tingimata eri klient – üks klient võib olla lic loonud astunud serveriga mitmesse ühendusse korraga. Seega kui teenindaja tahab mingit ühendust pidi infot välja saata, siis send funktsioonile esitatakse lisaks saadetavatele andmetele vastav socket.
+</p>
+<p>
+Teenindajas on üks eriline kuulajasocket, mis ei kujuta endast mingisugust ühendust. See socket on seal tehnilistel põhjustel ja võimaldab õigete ühenduste algatamiseks vajalikku kuulamist. Kuulajasocketi loomisel sellele esitatud aadressi ja porti kasutatakse klientidega tekkivatel ühendustel. Kokkuvõtlikult on socketid teenindaja masinas ja kliendi masinas järgmised.
+</p>
+<p>
+Kuulajasocket teenindajas – ainult selleks, et ühenduste alustamist võimaldada.
+Klientide socketid teenindajas – viidates ühele, saab vastavale kliendile sõnumit saata ja sõnumit vastu võtta.
+Serveri socket kliendil – sellele viitab klient, et alustada ühendust, saata serverile sõnumit ja sõnumit vastu võtta. 
+</p>
+<p>
+Selgituseks socketid ei tähenda, et sellega oldaks ühenduses teenindaja või kliendiga. See on lihtsalt mingisuguse ühenduse üks ots (endpoint) ja ei pea tingimata teadma, mis teises otsas on. Lic serveri ehk ühenduste vastuvõtja puhul seda, mis teises otsas on, nimetatakse kliendiks ja ühenduse algataja ehk kliendi puhul seda, mis teises otsas on, nimetatakse serveriks.
+</p>
+</body>
+</html>

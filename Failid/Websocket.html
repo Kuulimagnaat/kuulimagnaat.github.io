@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="Stiil.css" />
+        <title>Websocket</title>
+    </head>
+
+    <body>
+        <header>
+            <h1>
+                Websocket
+            </h1>
+        </header>
+        <p>
+            Websocket on protokoll, mille järgi saavad võrku ühendatud kaks programmi minna http-d järgivalt vestluselt üle maldalama taseme TCP-d järgivale vestlusele. HTTP on küll lihtne, aga pidev socketite avamine, sulgemine, http päringute tegemine ja neile vastuste ootamine on ajakulukas. TCP järgi side pidamine on ühelaeinsal socketil ja samaaegselt kahesuunaline, andmeid saavad mõlemad osalised saata millal tahes, omas tempos.
+        </p>
+        <p>
+            WebSocketi protokoll ei ole lihtsalt formaadita baidivoog nagu paljas TCP oleks. WebSocket nõuab, et saadetavad andmed oleks vormistatud <a href="Kaader.html">kaadriteks</a>, et sõnumil oleks rohkem eri omadusi ja sellega oleks lihtsam teha rohkemat.
+            <ul>
+                <li> Turvalisus </li>
+                <li> Sõnumi algus ja lõpp </li>
+                <li> Teksti ja binaarkoodi eristamine </li>
+                <li> Ühenduse kvaliteedi kontroll </li>
+            </ul>
+        </p>
+        <p>
+            Websocketi järgi peetav vestlus koosneb kolmest osast
+            <ul>
+                <li> <a href="Alustav käepigistus.html">Alustav käepigistus</a>, millega teenindaja ja klient tähistavad TCP-le üle minemist</li>
+                <li> Vestluse sisu, mille käigus klient ja server saadavad üksteisele <a href="Kaader.html">kaadreid</a>. </li>
+                <li> Käepigistus vestluse lõpetamiseks.</li>
+            </ul>
+        </p>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+    <head>
+		<link rel="stylesheet" href="Stiil.css" />
+        <title>This is the title of the webpage!</title>
+    </head>
+
+
+    <body>
+        <header>
+            <h1>
+                fopen
+            </h1>
+        </header>
+        <p>
+            <code>fopen(x1,x2)</code>
+            Funktsioon tagastab <code>FILE*</code> tüübi objekti. x1 on const char* ja esitab avatava faili nime. x2 on <code>const char*</code> ja esitab meetodit, millega fail avada. Peab olema täpselt üks järgmistest: <code>r</code>, <code>w</code>, <code>a</code>, <code>r+</code>, <code>w+</code>, <code>a+</code>.
+            <ol>
+                <li><code>r</code> avab faili lugemiseks. Fail peab varem olemas olema</li>
+                <li><code>w</code> avab faili kirjutamiseks. Kui fail on juba olemas, siis selle sisu kustutatakse. Kui seda pole, siis teeb uue faili.</li>
+                <li><code>a</code> avab faili teksti juurde lisamiseks. Kui faili pole, teeb uue.</li>
+                <li> <code>r+</code> avab faili lugemiseks ja kirjutamiseks. Fail peab varem olemas olema ja selle sisu avamisel ei kustutata.</li>
+                <li><code>w+</code> avab faili lugemiseks ja kirjutamiseks. Avamisel faili sisu kustutatakse.</li>
+                <li><code>a+</code> avab faili uue teksti lisamiseks ja lugemiseks. Avamisel sisu jääb alles. Kui faili pole, teeb uue.</li>
+            </ol>
+        </p>
+    </body>
+</html>

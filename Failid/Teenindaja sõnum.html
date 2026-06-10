@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="Stiil.css" />
+        <title>Teenindaja sõnum</title>
+    </head>
+
+    <body>
+        <header>
+            <h1>
+                Teenindaja sõnum
+            </h1>
+        </header>
+        <p>
+            Kui <a href=Websocket.html>WebSocketi</a> protokolli järgi tehtavas <a href="Alustav käepigistus.html">alustavas käepigistuses</a> on teenindaja saanud kliendilt <a href="Kliendi sõnum.html">sõnumi</a> kätte, siis protokolli järgi peab ta saatma kliendile tagasi ühe vastuse. See vastus on võrdlemisi lühem kui kliendi oma, aga samas keerulisem. Pärast selle sõnumi saatmist peavad teenindaja ja klient hakkama üksteisele saatma <a href="Kaader.html">kaadreid</a>.
+        </p>
+        <p> 
+            Teenindaja sõnum on HTTP-vastus, mis järgiks mitte väiksemat HTTP versiooni kui 1.1. Esimesel real olgu nimetatud staatusekood 101 ja seda duubeldav tekst "Switching Protocol". Näiteks <code>HTTP/1.1 101 Switching Protocols</code>. Sõnumi päistes peab olema väärtus antud mitmele väljale.
+            <ol>
+                <li>
+                    Sec-WebSocket-Accept peab väärtuseks saama ühe erilise teksti, mis on koostatud järgmiselt. Alustuseks võetakse kliendi saadetud tekst tähisega Sec-WebSocket-Key. Sellele tekstile lisatakse otsa järgnev tekst "258EAFA5-E914-47DA-95CA-C5AB0DC85B11". Saadud tekst lastakse läbi räsifunktsiooni SHA-1. Tulemus kodeeritakse baasil 64. Saadud tekst läheb välja väärtuseks. Näiteks kui Sec-WebSocket-Key on <code>dGhlIHNhbXBsZSBub25jZQ==</code>, siis väli Sec-WebSocket-Accept peab väärtuseks saama <code>s3pPLMBiTxaQ9kYGzzhZRbK+xOo=</code>.
+                </li>
+                <li>
+                    Connection saagu väärtuseks "Upgrade" järgmiselt: <code>Connection: Upgrade</code>.
+                </li>
+                <li>
+                    Upgrade väärtuseks peab saama "websocket" nagu <code>Upgrade: websocket</code>.
+                </li>
+            </ol>
+        </p>
+        <p>
+            Näiteks võib teenindaja vastus kliendile olla selline.
+            <pre>HTTP/1.1 101 Switching Protocols\r\n
+Sec-WebSocket-Accept: s3pPLMBiTxaQ9kYGzzhZRbK+xOo=\r\n
+Connection: Upgrade\r\n
+Upgrade: websocket\r\n
+\r\n</pre>
+        </p>
+    </body>
+</html>

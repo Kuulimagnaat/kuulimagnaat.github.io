@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="Stiil.css" />
+        <title>fseek</title>
+    </head>
+
+
+    <body>
+        <header>
+            <h1>
+                fseek
+            </h1>
+        </header>
+        <p>
+            <code>fseek(x1,x2,x3)</code>
+            Funktsioon muudab kursori asukohta ehk seda asukohta, kust avatud failis infot loetakse või kuhu kirjtuatakse. Funtksioon tagastab täisarvu, mis on 0, kui töötas edukalt, ja mittenull, kui miski läks valesti.</p>
+        <p>
+            x1 on FILE* ja viitab failile, milles kursori paika muuta. x2 on long ja annab baitide koguse, mille võrra tuleb kursoril liikuda kolmanda argumendiga antud asukoha suhtes. x3 on int ja määrab asukoha, kuhukohta kursor pannakse enne seda, kui seda liigutatakse x2-ga antud koguse võrra. Peab omama üht kolmest defineeritud väärtusest
+            <ol>
+            <li>SEEK_SET (väärtus 0) määrab alguskohaks faili alguse.</li>
+            <li>SEEK_END (väärtus 2) määrab alguskohaks faili lõpu.</li>
+            <li>SEEK_CUR (väärtus 1) määrab alguseks kursori praeguse asukoha.</li>
+            </ol>
+        </p>
+        <p>Funktsiooni saab kasutada, et <a href="Faili suuruse leidmine.html">faili suuruse ledimises</a></p>.
+    </body>
+</html>
+

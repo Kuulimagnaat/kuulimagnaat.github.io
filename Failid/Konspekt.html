@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" href="Stiil.css"/>
+<title>
+Konspekt
+</title>
+</head>
+<body>
+<header>
+<h1>
+Konspekt
+</h1>
+</header>
+<p>
+-I flag selleks, et anda header failide asukoht GCCle kätte.
+</p>
+<p>
+Nüüd tuleks vaadata splaine. Tahaks teha ära kolme kolme punkti splaini. Pärast seda uurin teksti.
+</p>
+<p>
+Tegelt yo! Kui slideri struktuuri sees on kirjas, kus slider pikslites asub, ss selle järgi saab ju arvutada, kus slider akna suhtes asub -1–1 vahemikus. Seda on vaja selleks, et akna suhtes asi paika panna. Ss oleks nii: 1) akna suurus muutub, 2) slideriga tegelemmise funktsioon, 3) vana asukoha ja uue aknasuuruse järgi arvutatakse uus 0–1 asukoht. Hmmm, see ei tööta, sest see uus -1–1 asukoht kirjeldab vana asukohta, mis uue aknasuuruse järgi on servadest väljas. Kui aga ei arvutaks iga kaader uut -1–1 asukohta, vaid ainult kõige alguses, ss see vst töötaks.
+</p>
+<p>
+Slideri asukohta struktuuri sees esitavad koordinaadid pikslites. Need koordinaadid kohanevad-muutuvad akna suuruse muutudes ja paikapanemisfunktsioon on see, millele antud argumendiga need iga kaader määratakse. Seega see argument – asukoht akna suhtes normaliseeritud vek2 – peab tulema struktuuri enda andmetest. Aight. Tehtav, ma lic lisan selle teise vek2 ka slideri struktuuri väljaks. Ss on slideri sees kaks asukohta. Üks see, mida kasutajal on mugav määrata normaliseeritud. Teine see, mis selle järgi arvutatakse ja mis läheb puhvrisse. On kokkusattumus, et puhvri andmetest arvutatakse uuesti needsamad normaliseeritud koordinaadid, mis tglt olemas olid, sest need struktuuri sees olevad kasutaja määratud koordinaadid võivad olla misiganes muud mugavad koordinaadid.
+</p>
+<p>
+Tahaks, et iga kaader piisaks kasutamast TegeleSlideriga funktsiooni. See paigutaks selle õigesse kohta ja kontrolliks hiirega vajutamist. Õigess kohta panek vajab paigutusfunktisooni kasutamist, see aga vajab endale argumente, millega ei tahaks tegeleda: asukoht, murd akna laiusest. Seda paikapanemisfunktsiooni on samas vaja kasutada, et akna suuruse muutumisel slider õigesse kohta jääks. Igale slider peab ise teadma, kuidas ja kuhu ta ennast joonistama peab. See info peab olema kirjeldatud structis ja antama sellele structile üks kord initsialiseerimisel. Asukoht on slideril juba teada. Vaja infot, kas slider peab end venitama v mitte ja kui peab, ss mis koht on ankurdatud – vasak serv, keskkoht, parem serv? Suva see prg. Teen ainult üht tüüpi slidereid.
+</p>
+<p>
+Kui on tajutud, et hiir on lohisti nupu alla vajutanud, kuidas ss lohisti nuppu liigutada? Well. Lohistamise alguses tuleb vaadata hiire asukohta. Seejärel vaadata, kuskohas hiir slideri peal on: näiteks, kui hiir on vasaku ja parema otsa vahepeal, määrata slideri väärtuseks 0.5. Pea hüppab automaatselt õigesse kohta, sest see põhineb slideri väärtusel. 
+</p>
+<p>
+Slideri objekti kirjeldab mitu asja.
+1) Slideri väärtuste ülempiir ja alampiir.
+2) Slideri väärtus, mida esitada kas parameetriliselt, nt 0–1 väärtusega või reaalse väärtusega.
+3) slideri tõkkekarp, mis kirjeldab slideri suurust ja asukohta.
+4) Värvid rööpale ja käepidemele
+5) Slideri kuju kirjeldus, st kui paks on slider, kus see asub tõkkekarbi sees, kui paks on käepide jms.
+Kaks esimest omadust väljendavad slideri ideed nagu abstraktset asja, ülejäänud omadused on vajalikud joonistamise jaoks.
+</p>
+<p>
+OpenGL järgi on olemas pesad, millesse objekte pannes saab määrata ära, kuidas neid objekte kasutatakse. Näiteks purhvriobjektide jaoks on olemas pesad GL_ARRAY_BUFFER, GL_ELEMENT_ARRAY_BUFFER jne.
+> GL_ARRAY_BUFFER pesas käsitletakse puhvri andmeid nagu tippude andmeid
+> GL_ELEMENT_ARRAY_BUFFER pesas nagu indekseid
+</p>
+<p>
+Pesadesse panemine ehk bindimine käib bind funktsioonidega.
+> glBindVertexArray
+> glBindBuffer
+</p>
+<p>
+Asjade ekraanile joonistamiseks on kuidagi vaja esitada OpenGLile mälu, kus on sees tippude koordinaadid. See käib läbi puhvriobjekti.
+> Lood puhvriobjekti. glGenBuffers()
+> Paned puhvriobjekti GL_ARRAY_BUFFER pesasse. glBindBuffer()
+> Määrad selles pesas olevale objektile andmed. glBufferData()
+On võimalik teha mitu puhvriobjekti ja neile kõigile andmeid määrata. Selleks on vaja need ükshaaval pesasse panna j ss andmed määrata.
+</p>
+<p>
+Iga tipp koosneb järjestikustest andmetest. Näiteks üks tipp võib olla järmised andmed.
+> 2 floati asukohaks
+> 1 float kirjeldamaks, kas on käepidemetipp v rööpatipp.
+> 2 floati normaaliks
+> 4 floati värviks.
+OpenGL peab saama nummerdada need andmetükid edasise tipuvarjutajas toimuva tegevuse jaoks. See nummerdamine käib glVertexAttribArray ja glEnableVertexAttribPointer funktsioonidega. Iga kutsungiga nummerdatakse ära üks andmetükk. Selle puhvri mälu need funktisoonid nummerdavad, mis on hetkel GL_ARRAY_BUFFER pesas. Muudesse pesadesse pandavate puhvrite andmeid ei nummerdata, sest muude puhvrite andmed on lihtsamad. Numbreid saab määrata ka eri puhvritest pärit andmetele.
+</p>
+<p>
+Kuidas gui elemendi paigutamine ekraanil käib. Selleks esmalt valida, mis koordinaadisüsteemis tahetakse programmeerimist teha. Soovitatav on ekraani koordinaatides, st mõõtühikuks valin piksli. 
+> Uuritakse välja akna suurus.
+> Otsustatakse, kuhu slider läheb. 
+</p>
+<p>
+Horisontaalse slideri puhul kui käepideme mõõtmed on fikseeritud ja rööpa paksus on fikseeritud, siis slideri mudeli fikseerimise jaoks on vaja kolme asja:
+> Rööpa asukohta (nt vasaku otsa asukoht v keskpunkti asukoht)
+> Rööpa pikkust
+> Käepideme asukohta (arvutatav slideri väärtuse järgi)
+</p>
+</body>
+</html>

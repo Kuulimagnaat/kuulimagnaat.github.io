@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" href="Stiil.css"/>
+<title>
+Windowsi võrguproge
+</title>
+</head>
+<body>
+<header>
+<h1>
+Windowsi võrguproge
+</h1>
+</header>
+<p>
+Selleks, et teha Windowsi operatsioonisüsteemiga võrguproget, näiteks tekitada TCP ühendus, on vaja kasutada <code>Winsock2</code> teeki. Teegi kasutamine algab käivitamisega, funktsioon WSAStartup. WSA tähendab WinSockAPI.
+</p>
+<p>
+WSAStartup võtab teiseks argumendiks WSADATA struktuuri esindaja mäluaadressi, et sellesse esindajasse käivitusinfo salvestada. See struktuur on vaja enne muutujaks teha. Esimeseks argumendiks võtab funktsioon WORDi e kaks baiti. Mõjukam bait esitab versiooni esimese arvu, nõrgem bait teise arvu. Niimoodi windowsi versioonide süsteem töötab kõigel. Seda WORDi on mõttekas koostada MAKEWORD macroga, mis kaks ühebaidist arvu paneb kokku kahebaidiseks.
+WSADATA wsa;
+WSAStartup(MAKEWORD(2,2), &wsa);
+</p>
+<p>
+Selleks, et luua ühendus, on tarvis luua Socket (ühenduse andmetehoiu struktuur). Funmktsioon socket. 1. argument on üks järgmistest: AF_INET, AF_INET6, AF_UNIX, AF_BTH. See ütleb ära, missuguste aadressidega ühendus tekitatakse: IPv4, IPv6, mingi unixi pask ja Bluetooth. Normaalne on AF_INET. Teine argument on ühendusega saadetavate andmete formaat: SOCK_STREAM, SOCK_DGRAM, SOCK_RAW. Levinuim on SOCK_STREAM, mis garanteerib saadetud andmete järjestuse ja kohalejõudmise. Viimane argument 0 laseb automaatselt protokolli valida, mille järgi oleks eesmiste argumentidega antud tingimused täiderud.
+1) Address family - how addresses look
+2) Socket type    - communication semantics
+3) Protocol       - concrete transport implementation
+SOCKET server = socket(AF_INET, SOCK_STREAM, 0);
+</p>
+<p>
+Windowsi võrguproges käib socketile aadressi ja pordi lisamine ühes tükis. Selleks koostatakse aadressioblekt, mis sisaldab endas mõlemat. Seejärel koostatud aadressistruktuur tuleb siduda socketiga. Funktsioon bind.
+struct sockaddr_in addr = {0};
+addr.sin_family = AF_INET;
+addr.sin_port   = htons(8080);
+addr.sin_addr.S_un.S_addr = INADDR_ANY;
+bind(server, (struct sockaddr*)&addr, sizeof(addr));
+</p>
+</body>
+</html>

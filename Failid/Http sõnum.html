@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Http sõnum</title>
+    </head>
+    <body style="background-color:rgb(33, 33, 33); color:white">
+        <header>
+            <h1>
+                Http sõnum
+            </h1>
+        </header>
+        <p>
+            HTT protokolli järgi koosneb üks arvutitevaheline teade kolmest osast.
+            <ul>
+                <li>Esimene rida sisaldab endas seda, mis eesmärk sõnumil on, aadressi, kuhu sõnum on suunatud ja http versiooni, mida sõnum järgib.</li>
+                <li>Järgmistel ridadel on palju infot selle kohta, millist sõnumit on küsija valmis vastu võtma, mis on browseri versioon ja igast settingud.</li>
+                <li>Viimaks tuleb tühi rida, millele järgneb keha. Keha on lisainfo, mida http sõnumi otsa saab panna. Progeja enda välja mõelda, mis ta kehasse paneb.</li>
+            </ul>
+            HTTP sõnumid saadetakse lihttekstina, mille revahetusi tähistavad kaks kõrvutiolevat baiti \r ja \n. Ainult \n-ga reavahetus tähistada on vale. Samas, keha võib olla koostatud kuidas juhtub. Keha on progeja pärusmaa.
+        </p>
+        <p>
+            Näiteks on üks HTTP-päring selline.
+            <code style="display:block; white-space:pre-wrap">
+POST / HTTP/1.1
+Host: 192.168.1.212:8080
+Connection: keep-alive
+Content-Length: 5
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0
+Content-Type: text/plain
+Accept: */*
+Origin: http://192.168.1.212:8080
+Referer: http://192.168.1.212:8080/
+Accept-Encoding: gzip, deflate
+Accept-Language: en-GB,en;q=0.9,en-US;q=0.8,et;q=0.7
+
+punane
+            </code>
+        </p>
+    </body>
+</html>

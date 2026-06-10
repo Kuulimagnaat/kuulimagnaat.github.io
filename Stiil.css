@@ -10,7 +10,7 @@ body {
 
 
 header h1,
-body > p {
+ul {
     max-width: 900px;
     padding: 20px;
     background-color: white;
@@ -25,9 +25,33 @@ header h1 {
     margin: 0 auto 10px auto;
 }
 
-body > p {
-    margin: 10px auto 0 auto;
+ul {
+    list-style:none;
+    max-width: 900px;
+    margin: 10px auto;
+
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
+
+    column-width: 200px;
+    column-gap: 1.5rem;
 }
+
+li {
+    background-color: white;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+    break-inside: avoid;
+  text-align: center;
+}
+
+li:first-child {
+    margin-top: 0px;
+}
+
+
 
 /* Make math stand out slightly */
 math {

@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="Stiil.css" />
+        <title>Kaader</title>
+    </head>
+
+    <body>
+        <header>
+            <h1>
+                Kaader
+            </h1>
+        </header>
+        <p>
+            Kui <a href="Alustav käepigistus.html">alustav käepigistus</a> kliendi ja serveri vahel on tehtud, võivad mõlemad hakata üksteisele andmeid saatma. <a href="Websocket.html">WebSocketi protokolli</a> järgi ei tohi seda teha suvaliselt, vaid kindla vormistusega kaadrite kaupa. Sõnum saab olla ühekaadriline või mitmekaadriline e killustatud.
+        </p>
+        <p>
+            Kaadril maksimaalselt suurust praktiliselt pole, aga kuna suure andmemahu tervenisti vestluskaaslasele jõudmine võtab aega, siis on võimalik see maht jagada mitmeks kaadriks, et saaks andmetöötlust alustada enne kõigi andmete kohalejõudmist. Lisaks tähendab väiksemate kaadrite ükshaaval töötlemine seda, et kasutatakse korraga vähem mälu.
+        </p>
+        <p>
+            Lisaks saadetavatele baitidele on kaadri alguses infot, mis kaadrit kirjeldab. Iga kaader sisaldab järgmisi andmeid. See, kuidas baiditasemel need andmed paigutatud on, kirjeldab <a href="Kaadri formaat.html">kaadri formaat</a>.
+            <ol>
+                <li> Kas tegu on sõnumi viimase kaadriga </li>
+                <li> <a href="Operatsioonikood.html">Operatsioonikood</a> </li>
+                <li> Kas bait on maskeeritud </li>
+                <li> Saadetavate baitide kogus </li>
+                <li> Maskeerimisvõti </li>
+                <li> Saadetavad baidid </li>
+            </ol>
+        </p>
+    </body>
+</html>

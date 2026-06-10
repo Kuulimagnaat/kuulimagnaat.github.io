@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="Stiil.css" />
+        <title>Operatsioonikood</title>
+    </head>
+
+    <body>
+        <header>
+            <h1>
+                Operatsioonikood
+            </h1>
+        </header>
+        <p>
+            <a href="Websocket.html">Websocket</a> nõuab, et saadetavad andmed oleks vormistatud <a href="Kaader.html">kaadriteks</a>. <a href="Kaadri formaat.html">Kaadri formaat</a> nõuab, et igas kaadris oleks kirjas operatsioonikood, mis annab infot kaadri kohta, kaadri andmete kohta, ühenduse kvaliteedi kohta ja ühenduse lõpetamise kohta.
+        </p>
+        <p>
+            Operatsioonikood saab omada arvulisi väärtusi 0–15. Iga väärtus tähendab eri asja.
+            <ol>
+                <li>0 – kaader on mitmekaadrilist sõnumit jätkav kaader e mitteesimene kaader.</li>
+                <li>1 – saadetavad baidid on UTF-8 kodeeringus tekst.</li>
+                <li>2 – saadetis on lihtsalt baidid mingis muus vormistuses.</li>
+                <li>3–7 – reserveeritud andmete kohta rohkema info andmiseks. Mõni laiendus võib neile tähenduse anda.</li>
+                <li>8 – websocketi ühendus suletakse. Alustatakse <a href="Lõpetav käepigistus.html">lõpetavat käepigistust</a>.</li>
+                <li>9 – ping sõnum ühenduse kontrolliks.</li>
+                <li>10 – pong sõnum ping-ile vastuseks.</li>
+                <li>11–15 – reserveeritud rohkema info edastamiseks ühenduse kohta.</li>
+            </ol>
+        </p>
+    </body>
+</html>

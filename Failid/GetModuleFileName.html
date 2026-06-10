@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+    <head>
+        <title>This is the title of the webpage!</title>
+    </head>
+
+
+    <body>
+        <header>
+            <h1>
+                GetModuleFileName
+            </h1>
+        </header>
+        <p>
+            <code>GetModuleFileName(a1,a2,a3)</code>
+            <ol>
+                <li>a1 on </a><code>HMODULE</code> ja on handle mingile moodulile (ig failile). Kui anda väärtuseks <code>NULL</code>, siis uurib funktsioon selle programmi exe-faili asukohta. Seega pmst alati anda väärtuseks <code>NULL</code>.</li>
+                <li>A2 on <code>LPSTR</code> ehk long pointer to string. Mälusse, kuhu see aadress viitab, kirjutab funktsioon uuritava exe-faili täisnime. Selles peab ruumi jätkuma. Seda, kas ruumi oli piisavalt või vähe, saab tagantjärgi kontrollida.</li>
+                <li>A3 on etteantava mäluala maht baitides. Kui nime kijrutamiseks läheb vaja rohkem baite kui see arv, ss on pahasti.</li>
+            </ol>
+        </p>
+        <p>
+            Funktsioon tagastab <code>DWORD</code>i, mis tähistab mälusse kirjutatudtähtede kogust, tekstilõpumärki arvestamata. Seega eduka lõpetamise korral on tagastus ülimalt A3-1.
+        </p>
+        <p>
+            Kui ei õnnestu teksti tervenisti mälusse kirjutada, ss on tagastus täpselt A3 ja viimaseks erroriks määratakse <code>ERROR_INSUFFICIENT_BUFFER</code>. Kui funktsioon lõpetab edutult muul põhjusel, saab seda teada, kontrollidest viimast errorit, mille saab kätte funktsiooniga GetLastError.
+        </p>
+    </body>
+    Funktsiooni asaab kastuada selleks, et leida programmi <a href="Exe faili asukoha leidmine.html">exe faili asukoht</a>.
+</html>

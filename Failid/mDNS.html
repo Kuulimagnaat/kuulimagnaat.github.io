@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" href="Stiil.css"/>
+<title>
+mDNS
+</title>
+</head>
+<body>
+<header>
+<h1>
+mDNS
+</h1>
+</header>
+<p>
+Ruuter muudab aeg-ajalt võrku ühendatud seadmete aadresse tehniliste põhjuste pärast. Samas kõigil on vaja teada teiste arvutite IP-aadresse, et nendega ühendust võtta. Selleks, kuidas üks arvuti teise arvuti IP-aadressi teada saab, on mitu võimalust.
+</p>
+<p>
+DNS (Domain Name System) on süsteem selleks, et veebiaadresside domeeninimed teisendada IP-aadressideks. Arvutid vajavad IP-aadressi, et muude arvutitega ühendust võtta. On olemas nimeserver, mille IP-aadressi iga arvuti teab. Selle aadressi on ruuter võrgulistele DHCP eeskirja järgides laiali jaganud. Arvuti saadab domeeninime nimeserverile ja server saadab tagasi IP-aadressi, millega arvutil tegelikult ühendust tuleb võtta. 
+</p>
+<p>
+On olemas süsteem mDNS (multicast DNS), mis ühte võrku ühendatud seadmetel aitab ühendatava seadme IP-aadressi teada saada ilma nimeserverita. Igal seadmel on algusest peale olemas võrgunimi (hostname), mis ei ole seotud ruuteri ega võrguga vaid arvuti endaga. Võrgunimi tavaliselt ei muutu ja kui muutub, siis ainult kasutaja soovi peale. Kui ühendust otsiv seade teab ühendatava võrgunime, siis ta saab IP-aadressi asemel kastuada seda nime ja lisada lõppu ".local". mDNS töötab nii, et ühendust otsiv seade saadab aadressile 224.0.0.251:5353 käsu: "Vastaku mulle aadressil x oma aadressiga parajasti see, kelle võrgunimi on y." Enamik on IGMP järgi selle aadressi sõnumeid tellinud, seega nad Kõik võrgu seadmed võtavad selle aadressiga sõnumeid vastu, sest nad on seda aadressi IGMP järgi tellinud. Kõik seadmed kuulavad sõna ja nii saabki ühendust otsiv seade kätte aadressi, kuhu ta peab ühenduma.
+</p>
+<p>
+Loomulikult on asi ebaturvaline, sest pahatahtlik arvuti ei pea sõna kuulama ning vastab mõne vale IP-aadressiga. Sellest ühendust otsiv arvuti aru ei saa, sest õigsuskontrolli e autentimist ei ole. Asi on puhtalt usalduse värk.
+</p>
+</body>
+</html>

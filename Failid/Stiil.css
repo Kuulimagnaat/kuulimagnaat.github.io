@@ -1,0 +1,76 @@
+html {
+  margin-left: 10%;
+  margin-right: 10%;
+    font-size: 22px;
+}
+
+
+@media (min-width: 1000px) {
+  html { zoom: 100%; }
+}
+
+@media (min-width:2000px) {
+  html { zoom: 130%; }
+}
+
+
+
+body
+{
+    background-color: #232323;
+    color: var(--tekst);
+    /* font-family: Arial, sans-serif; */
+    /* line-height: 2;*/
+}
+
+
+:root {
+  --koodiTaust: #383838;
+  --tekst: #d8d8d8;
+  --tabel: rgb(116, 116, 116);
+}
+
+
+a
+{
+  color: rgb(105, 163, 255);
+  text-decoration: none
+}
+
+code
+{
+    background-color: var(--koodiTaust);
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-size:large;
+}
+
+pre {
+    background-color: var(--koodiTaust);
+    padding: 2mm 3mm;
+    border-radius: 6px;
+    line-height: 1.5;
+    margin: 3.5mm 6mm;
+    display: block;
+    width: fit-content; 
+}
+
+table
+{
+  border-collapse: collapse; /*Ensures single borders between cells */
+  width: 50%;
+}
+
+td
+{
+  border: 0.5px solid var(--tabel);   /* <--- This makes the lines visible */
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+}
+
+td:nth-child(2), th:nth-child(2) {
+  text-align: center;
+}
+
+math { font-size: 1em; }

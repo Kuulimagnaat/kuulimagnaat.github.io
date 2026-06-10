@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="Stiil.css" />
+        <title>Kaadri formaat</title>
+    </head>
+
+    <body>
+        <header>
+            <h1>
+                Kaadri formaat
+            </h1>
+        </header>
+        <p>
+            <a href="Websocket.html">Websocketi</a> protokolli järgi saadavad teenindaja ja klient üksteisele andmeid, mis on vormistatud <a href="Kaader.html">kaadriteks</a>. Andmed, mida kaader sisaldab, on paigutatud bittide ja baitidena järgmiselt.
+            <ol> 
+                <li>
+                    Kaadri esimese baidi esimene bitt tähistab seda, kas tegu on sõnumi viimase kaadriga. Väärtus 0, kui ei ole viimane. Väärtus 1, kui on viimane kaader.
+                </li>
+                <li>
+                    Kaadri esimese baidi bitid 2, 3, ja 4 on reserveeritud muudeks funtksioonideks, mida kasutavad laiendused. Kui ükski laiendus pole nende bittide kasutust defineerinud, peab nende väärtuseks olema 0. Kui kasutus pole defineeritud, aga väärtus on 1, siis tuleb ühendus sulgeda.
+                </li>
+                <li>
+                    Kaadri esimese baidi teise poole neli bitti sisaldavad endas <a href="Operatsioonikood.html">operatsioonikoodi</a> väärtust. Op-koodiks saavad olla arvud 0–15.
+                </li>
+                <li>
+                    Kaadri teise baidi esimene bitt tähistab seda, kas saadetavad baidid on maskeeritud. Väärtus 0, kui ei ole. Väärtus 1, kui on maskeeritud.
+                </li>
+                <li>
+                    Edasised bitid on kasutuses, et tähistada saadetavate baitide arvu. Selle arvu hoidmiseks on valida kolm eri mahuvõimalust.
+                    <ol>
+                        <li>
+                            Ainult teise baidi tagumised 7 bitti. Kui saadetis on 0–125 baiti pikk, siis seda arvu saab hoida nendes seitsmes bitis.
+                        </li>
+                        <li>
+                            7 bitti ja 2 järgnevat baiti. Kui saadetise kogus ei mahu seitsmesse bitti võik kui tahetakse kasutada koguse hoidmiseks kaht baiti, siis määrata seitsme biti väärtuseks arv 126 ja saadetise kogus talletada järgnevas kahes baidis.
+                        </li>
+                        <li>
+                            7 bitti ja 8 järgnevat baiti. Kui on soov kasutada koguse hoidmiseks kaheksat baiti, siis seitsme biti väärtuseks saagu arv 127 ja baitide kogus talletada järgnevas kaheksas baidis. Järeldub, et kaadriga saab maksimaalselt saata 2^(8*8) baiti e umbes 18446744 terabaiti andmeid.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Kui tegu on kliendi saadetud sõnumiga, siis peale kogust on 4 baiti maskeerimisvõtit. Kui teenindaja saadab sõnumi, siis sellist asja pole.
+                </li>
+                <li>
+                    Viimaks tuleb varemnimetatud kogus saadetavaid baite.
+                </li>
+            </ol>
+        </p>
+    </body>
+</html>

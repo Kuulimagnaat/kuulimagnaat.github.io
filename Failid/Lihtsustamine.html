@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" href="Stiil.css"/>
+<title>
+Lihtsustamine
+</title>
+</head>
+<body>
+<header>
+<h1>
+Lihtsustamine
+</h1>
+</header>
+<p>
+Antud olgu avaldis sqrt((1-v/c)/(1+v/c)) ja fakt, et v on palju väiksem kui c. Kuna v on palju väiksem kui c, siis järelikult v/c=0. Selline lähendus avaldist ei aita lihtsustada, sest kui võtta, et v/c=0, saab avaldis endale väärtuseks arvu 1. Samas fakti, et v on palju väiksem kui c, tahaks avaldise lihtsustamiseks ära kasutada.
+</p>
+<p>
+Idee on järgmine. v/c on pisike nullilähedane väärtus, aga (v/c)^2 on veel rohkem nulli lähedal. Otsustame, et just (v/c)^2 on piisavalt nulli lähedal, et seda nulliga asendada, aga v/c las jääb oma algse väärtuse juurde. Kui õnnestub avaldist teisendada nii, et sinna sisse ilmuks (v/c)^2, mis seejärel asendada nulliga, siis võib-olla avaldis võtab lihtsama kuju ilma, et selle sisu kaoks. Sellisele kujule viimiseks vajalik trikk on tekitada nimetajasse ruutude vahe.
+</p>
+<p>
+sqrt((1-v/c)/(1+v/c)) = sqrt(((1-v/c)(1-v/c))/((1+v/c)(1-v/c))) = (1-v/c)sqrt(1/(1^2+(v/c)^2)) = (1-v/c)sqrt(1/(1+0)) = 1-v/c.
+</p>
+<p>
+Kui tekitada hoopis lugejasse ruutude vahe, siis tuleb sedasi.
+</p>
+<p>
+sqrt((1-v/c)/(1+v/c)) = sqrt(((1-v/c)(1+v/c))/((1+v/c)(1+v/c))) = 1/(1+v/c)sqrt(1-(v/c)^2) = 1/(1+v/c)sqrt(1-0)=1/(1+v/c).
+</p>
+<p>
+Arutluse järgi peaks need kaks tulemust üksteisele võrdsed olema, kui arvestada, et v on palju väiksem kui c. Need on võrdsed, kui arvestada et v/c=0.
+</p>
+</body>
+</html>

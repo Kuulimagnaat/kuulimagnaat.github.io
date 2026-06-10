@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="Stiil.css" />
+        <title>Kliendi sõnum</title>
+    </head>
+
+    <body>
+        <header>
+            <h1>
+                Kliendi sõnum
+            </h1>
+        </header>
+        <p>
+            Kui klient soovib teenindajaga suhtlemiseks hakata kasutama <a href="Websocket.html">WebSocketi protokolli</a>, siis tema peab alustama <a href="Alustav käepigistus.html">käepigistust</a>. Selleks on vaja saata teenindajale protokolli järgiv HTTP-päring. Kui viimane selle sõnumi kätte saab, tuleb talt ka <a href="Teenindaja sõnum.html">vastus</a>.
+        </p>
+        <p>
+            Klient saadab serverile GET tüüpi HTTP-päringu. Järgitav HTTP versioon olgu mitte väiksem kui 1.1. Sõnum andku väärtused järgmistele väljadele.
+            <ol>
+                <li>
+                    Origin peab väärtuseks saama aadressi, kust päring saadeti, st http://, millele järgneb kliendi arvuti ip-aadress, koolon ja port. Näiteks <code>Origin: http://172.31.184.42:8080</code>.
+                </li>
+                <li>
+                    Host saagu väärtuseks aadress, kuhu päring saadeti, st protokoll, serveri IP-aadress ja port, näiteks <code>Host: http://172.31.184.35:8080</code>
+                </li>
+                <li>
+                    Sec-WebSocket-Version peab saama väärtuseks arvu 13 järgmiselt. <code>Sec-WebSocket-Version: 13</code>.
+                </li>
+                <li>
+                    Sec-WebSocket-Key väärtuseks peab saama krüpteerimise jaoks räsiks üks juhuslik 16 baidi suurune arv, mis olgu kodeeritud baasil 64. Näiteks kui 16 baiti on <code>0x01 0x02 0x03 0x04 0x05 0x06 0x07 0x08 0x09 0x0a 0x0b 0x0c 0x0d 0x0e 0x0f 0x10</code>, siis välja väärtuseks saab <code>AQIDBAUGBwgJCgsMDQ4PEC</code> või padded variant <code>AQIDBAUGBwgJCgsMDQ4PEA==</code>, vahet pole.
+                </li>
+                <li>
+                    Connection saagu väärtuseks tekst "Upgrade" järgmiselt: <code>Connection: Upgrade</code>
+                </li>
+                <li>
+                    Upgrade peab saama väärtuseks teksti "websocket" niimoodi: <code>Upgrade: websocket</code>
+                </li>
+            </ol>
+            Seega näiteks on üks kliendi saadetav sõnum selline:
+            <pre>GET / HTTP/1.1\r\n
+Origin: http://172.31.184.42:8080\r\n
+Host: http://172.31.184.35:8080\r\n
+Sec-WebSocket-Version: 13\r\n
+Sec-WebSocket-Key: AQIDBAUGBwgJCgsMDQ4PEA==\r\n
+Connection: Upgrade\r\n
+Upgrade: websocket\r\n
+\r\n</pre>
+        </p>
+    </body>
+</html>

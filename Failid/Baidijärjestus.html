@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" href="Stiil.css"/>
+<title>
+Baidijärjestus
+</title>
+</head>
+<body>
+<header>
+<h1>
+Baidijärjestus
+</h1>
+</header>
+<p>
+Saame aru, et 345 on suurem kui 45, sest esimesel numbril on kolm sajalist, teisel on null. Kümnelised on ühelistest vasakul, sajalsed on kümnelistest vasakul, tuhandelised on sajalistest vasakul. Suurema järguühiku kordaja on alati väiksematest vasakul. Samamoodi on ka kahendsüsteemis suuremad järgud vasakul väiksemad paremal. Arv 0100 on väiksem kui 1001, sest suurima järgu, kaheksaliste, kordaja on esimesel 0 teisel <math>
+<mrow>
+<mn>1</mn>
+</mrow>
+</math>.
+</p>
+<p>
+Võiks arvata, et süsteem jätkub ka baiditasemel sarnaselt. Baidid, milles on suuremate järkude bitid võiks asuda mälus vasakul e väiksematel aadressidel ja väiksemate järkudega baidid paremal. Iga süsteem nii ei tee. Näiteks Windowsi ja linuxi opsüsteemi mälu on korraldatud nii, et suuremate järkudega, mõjukamad, baidid on paremal e suurematel aadressidel ja väiksemate järkudega baidid vasakul. Seega arv 256 on Windowsi süsteemi mälus aadresside kasvamise järjekorras kirjas selliselt: 00000000 00000001. Kui suuremate järkudega baidid vasakule panna, siis oleks need baidid järjestatud normaalsemalt: 00000001 00000000. Veebisuhtluse standardid tihti nõuavad, et baidid oleks järjestatud mõjukamad vasakule, nagu normaalne on. Näiteks Websocketi eeskiri nõuab, et kaadri osas, mis kirjeldab sõnumi pikkust, oleks pikkus kirjas nii, et mõjukamad baidid oleks vasakul.
+</p>
+<p>
+Seega Windowsis on tihti vaja arvude baite järjestada ümber süsteemijärjestusest normaaljärjestuseks. Selleks on funktsioonid htons ja htonl, lühendatult "host to network short" ja "host to network long", mis teevad ära selle ümberjärjestuse 2 ja 4 baidise arvu korral. Nende pöördfuntksioonid on ntohs ja ntohl, lühendatult "network to host short" ja "network to host long".
+</p>
+</body>
+</html>

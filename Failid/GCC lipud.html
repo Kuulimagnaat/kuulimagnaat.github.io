@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+    <head>
+        <title>GCC lipud</title>
+    </head>
+    <body>
+        <header>
+            <h1>
+                GCC lipud
+            </h1>
+        </header>
+        <p>
+            Selleks, et C-faili kompileerimisel loetaks faili 1252 kodeeringus, mitte UTF-8 kodeeringus, tuleb anda gcc käsule lipp -finput-charset=cp1252. Seda vaja mul lõpuks ei läinud. Salvestasin UTF-8-ga ja järgmisest lipust tegelikult piisab, et proge töötamise ajal kõike saaks 1252 kodeeringus käsitleda.
+        </p>
+        <p>
+            Selleks, et string literalid oleks mälus 1252 kodeeringus, tuleb lisada gcc-le lipp -fexec-charset=cp1252.
+        </p>
+    </body>
+</html>
