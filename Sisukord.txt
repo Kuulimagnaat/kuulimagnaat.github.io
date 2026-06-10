@@ -1,0 +1,4 @@
+[Airy ketas] [Airy ketas] on valgusrõngas, mis tekib, kui valgus läbi pisikese augu langeb seinale.
+[Alaldi] on seade vahelduvvoolu alalisvooluks muutmiseks.
+Websocketi protokollile üleminek algab [alustava käepigistusega].
+Eri süsteemidel on arve moodustavad [

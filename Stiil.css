@@ -4,56 +4,61 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f4f6f8;
+    background-color: #dfe4ea;
     color: #1a1a1a;
 }
 
-
-header h1,
-ul {
-    max-width: 900px;
-    padding: 20px;
-    background-color: white;
-    border-radius: 30px;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
+header h1, .infonupp {
+    border-radius: 20px;
 }
 
 header h1 {
+    margin: auto;
+    max-width: 900px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
     font-size: x-large;
     font-weight: lighter;
     text-align: center;
-    margin: 0 auto 10px auto;
 }
 
-ul {
-    list-style:none;
+.infonupp {
+    border: none;
+    padding: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.07);
+    background-color:#ffffff;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.failinimi {
+    margin: auto;
+    padding-right: 25px;
+}
+
+.kokkuvõte {
+    margin: auto;
+}
+
+.infonupp:hover {
+    background-color:#f4f4f4;
+}
+
+.ruudustik {
     max-width: 900px;
-    margin: 10px auto;
+    margin: 0 auto;
 
-    background-color: white;
-    border-radius: 30px;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
+    display: grid;
 
-    column-width: 200px;
-    column-gap: 1.5rem;
-}
+    /* Create as many columns as fit */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 2fr));
 
-li {
-    background-color: white;
-    padding: 10px;
-    margin: 10px;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
-    break-inside: avoid;
-  text-align: center;
-}
-
-li:first-child {
-    margin-top: 0px;
-}
-
-
-
-/* Make math stand out slightly */
-math {
-    font-size: 1.1em;
+    gap: 12px;
 }
