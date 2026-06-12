@@ -1,76 +1,94 @@
-html {
-  margin-left: 10%;
-  margin-right: 10%;
-    font-size: 22px;
+/* General page setup */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #e2e8ff;
+}
+
+header h1, p {
+    border-radius: 20px;
 }
 
 
-@media (min-width: 1000px) {
-  html { zoom: 100%; }
+
+header h1 {
+    margin: auto;
+    max-width: 900px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
+    font-size: x-large;
+    font-weight: lighter;
+    text-align: center;
+    font-variant:small-caps;
 }
 
-@media (min-width:2000px) {
-  html { zoom: 130%; }
+p {
+    margin: auto;
+    margin-bottom: 10px;
+    padding: 15px;
+    max-width: 900px;
+    background-color: white;
+    box-sizing: border-box;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
 }
 
-
-
-body
-{
-    background-color: #232323;
-    color: var(--tekst);
-    /* font-family: Arial, sans-serif; */
-    /* line-height: 2;*/
+.infonupp {
+    text-align: left;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.07);
+    background-color:#ffffff;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
 }
 
-
-:root {
-  --koodiTaust: #383838;
-  --tekst: #d8d8d8;
-  --tabel: rgb(116, 116, 116);
+.failinimi {
+    hyphens:auto;
+    overflow-wrap: anywhere;
+    display: flex;
+    text-align: center;
+    justify-content:center;
+    align-items: center;
+    padding: 5px;
+    box-sizing: border-box;
+    background-color:#f4f3ff;
+    border-radius: 10px;
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.07);
+    font-family: monospace;
 }
 
-
-a
-{
-  color: rgb(105, 163, 255);
-  text-decoration: none
+.kokkuvõte {
+    padding-left: 15px;
+    margin: auto;
+    text-align: left;
+    margin: 0;
+    align-self: center;
+    justify-self: start;
+    color: #28008c;
 }
 
-code
-{
-    background-color: var(--koodiTaust);
-    padding: 2px 4px;
-    border-radius: 4px;
-    font-size:large;
+.infonupp:hover {
+    background-color:#f4f4f4;
+}
+.infonupp:hover .failinimi {
+    background-color: #e0dcff;
 }
 
-pre {
-    background-color: var(--koodiTaust);
-    padding: 2mm 3mm;
-    border-radius: 6px;
-    line-height: 1.5;
-    margin: 3.5mm 6mm;
-    display: block;
-    width: fit-content; 
-}
+.ruudustik {
+    max-width: 900px;
+    margin: 0 auto;
 
-table
-{
-  border-collapse: collapse; /*Ensures single borders between cells */
-  width: 50%;
-}
+    display: grid;
 
-td
-{
-  border: 0.5px solid var(--tabel);   /* <--- This makes the lines visible */
-  border-left: none;
-  border-right: none;
-  border-bottom: none;
-}
+    /* Create as many columns as fit */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 
-td:nth-child(2), th:nth-child(2) {
-  text-align: center;
+    gap: 12px;
 }
-
-math { font-size: 1em; }
