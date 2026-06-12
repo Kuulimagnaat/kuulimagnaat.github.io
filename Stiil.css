@@ -12,6 +12,12 @@ header h1, .infonupp {
     border-radius: 20px;
 }
 
+.infonupp, .failinimi, header h1{
+    color:rgb(56, 39, 117);
+}
+
+
+
 header h1 {
     margin: auto;
     max-width: 900px;
@@ -24,13 +30,13 @@ header h1 {
     font-size: x-large;
     font-weight: lighter;
     text-align: center;
+    font-variant:small-caps;
 }
 
 .infonupp {
+    text-align: left;
     border: none;
-    padding: 30px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px;
     cursor: pointer;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.07);
     background-color:#ffffff;
@@ -39,16 +45,35 @@ header h1 {
 }
 
 .failinimi {
-    margin: auto;
-    padding-right: 25px;
+    hyphens:auto;
+    overflow-wrap: anywhere;
+    display: flex;
+    text-align: center;
+    justify-content:center;
+    align-items: center;
+    padding: 5px;
+    box-sizing: border-box;
+    background-color:#f4f3ff;
+    border-radius: 10px;
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.07);
+    font-family: monospace;
 }
 
 .kokkuvõte {
+    padding-left: 15px;
     margin: auto;
+    text-align: left;
+    margin: 0;
+    align-self: center;
+    justify-self: start;
+    color: #28008c;
 }
 
 .infonupp:hover {
     background-color:#f4f4f4;
+}
+.infonupp:hover .failinimi {
+    background-color: #e0dcff;
 }
 
 .ruudustik {
