@@ -16,6 +16,10 @@ header h1, .infonupp {
     color:rgb(56, 39, 117);
 }
 
+.infonupp, .failinimi {
+    font;
+}
+
 
 
 header h1 {
@@ -42,6 +46,8 @@ header h1 {
     background-color:#ffffff;
     display: grid;
     grid-template-columns: 1fr 2fr;
+        text-decoration: none;
+    color: inherit;
 }
 
 .failinimi {
